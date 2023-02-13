@@ -1,0 +1,85 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Camp {
+  id                      Int       @id @default(autoincrement())
+  campImage               String
+  campName                String
+  campDescription         String
+  campLocation            String
+  bookingPrice            String
+  campRating              Int
+  campPromotion           Boolean   @default(false)
+  campPromotionRating     Int
+  campFeeDescription      String
+  campMode                CampMode  @default(EASY)
+  booking                 Booking[]
+  campFacility            Boolean
+  campFacilityDescription String
+}
+
+model CampFacilityDescription {
+  id               Int     @id @default(autoincrement())
+  tentRenting      Boolean
+  wift             Boolean
+  activity         Boolean
+  suitBestFor      String
+  nearbyRestaurant Int
+}
+
+model BananaPoint {
+  id              Int    @id @default(autoincrement())
+  itemImage       String
+  itemName        String
+  itemBananaPoint Int
+  itemDescription String
+}
+
+model User {
+  id          Int       @id @default(autoincrement())
+  userImage   String
+  userName    String
+  bananaPoint String
+  booking     String
+  Booking     Booking[]
+}
+
+model Booking {
+  id     Int  @id @default(autoincrement())
+  UserId User @relation(fields: [userId], references: [id])
+  userId Int
+  CampId Camp @relation(fields: [campId], references: [id])
+  campId Int
+}
+
+model Servive {
+  id                 Int          @id @default(autoincrement())
+  serviceImage       String
+  serviceName        String
+  serviceCategory    CampCategory @default(FOOD)
+  serviceDescription String
+  serviceContact     String
+  serviceLineContact String?
+  serviceDistance    String
+}
+
+enum CampMode {
+  EASY
+  MEDIUM
+  HARD
+}
+
+enum CampCategory {
+  FOOD
+  STORE
+  BEVERAGE
+}
