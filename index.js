@@ -8,19 +8,7 @@ dotenv.config()
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json())
-// app.use(cors({ origin: ["http://localhost:3000","https://line-hack-client.vercel.app"], credentials: true }))
-
-// app.use(function(req,res,next) {
-// res.header('Access-Control-Allow-Credentials', 'true');
-// res.header('Access-Control-Allow-Origin', req.headers.origin);
-// res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-// res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
-// if ('OPTIONS' == req.method) {
-//      res.send(200);
-//  } else {
-//      next();
-//  }
-// });
+app.use(cors({ origin: "*", credentials: true }))
 
 app.use("/user", require("./routers/userRouter"))
 app.use("/shop", require("./routers/shopRouter"))
