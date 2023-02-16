@@ -6,7 +6,7 @@ const cors = require("cors")
 
 dotenv.config()
 
-app.use(cors({ origin: ["http://localhost:3000","https://line-hack-client.vercel.app"], credentials: true }))
+app.use(cors({ origin: ["http://localhost:3000","https://line-hack-client.vercel.app/"], credentials: true }))
 app.use(express.urlencoded({extended: true}));
 app.use(express.json())
 
@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 
 app.use(function(req,res,next) {
 res.header('Access-Control-Allow-Credentials', 'true');
-res.header('Access-Control-Allow-Origin', "https://line-hack-client.vercel.app");
+res.header('Access-Control-Allow-Origin', "https://line-hack-client.vercel.app/");
 res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
 res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
 if ('OPTIONS' == req.method) {
