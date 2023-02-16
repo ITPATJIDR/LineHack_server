@@ -3,7 +3,7 @@ const app = express()
 const port = process.env.PORT || 5001
 const dotenv = require("dotenv")
 const cors = require("cors")
-const prisma = require('../utils/prisma')
+const prisma = require('./utils/prisma')
 
 dotenv.config()
 
