@@ -33,7 +33,7 @@ app.get("/", (req, res) => {
 
 app.post("/test", (req, res) => {
     const {test} = req.body
-    console.log(test)
+    res.send(test)
 })
 
 
