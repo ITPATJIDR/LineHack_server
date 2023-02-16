@@ -8,21 +8,41 @@ const KEY = "ATXCKMTSIKUKEJVXJTPDXYUMREKCJRCEYWTQGBUWYSHZAXOBVGWFXTJWXBPUSLOCHRJ
 const userCtrl = {
 	register: async (req, res, next) => {
 		try {
-			const userAll = await prisma.user.findMany()
-			res.send(userAll)
+			const {userId, userImage, userName} = req.body
+			const result = await prisma.user.findFirst({
+				where :{
+					userId: userId,
+				}
+			})
+			if (result === null) {
+				const newUser = await prisma.user.create({
+					data: {
+						userId: userId,
+						userImage: userImage,
+						userName: userName,
+						bananaPoint: "0",
+					}
+				})
+				res.status(200).json({user:newUser})
+			}else{
+				res.status(200).json({user: result})
+			}
 		} catch (err) {
 			console.log(err)
 			next()
 		}
 	},
-	lineLogin: async (req, res, next) => {
-		const client_id = "1657835103"
-		const CSRF_TOKEN = tokens.create(secret)
-		const redirect_uri = "http://localhost:5001"
-		const scope = "profile"
-		const nonce = OneTimeToken.generate(KEY)
-		const lineLoginURL = `https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=${client_id}&redirect_uri=${redirect_uri}&state=${CSRF_TOKEN}&scope=${scope}&nonce=${nonce}`
-		res.redirect(lineLoginURL)
+	getUserDetail: async(req, res, next) => {
+		try{
+			const {userId} = req.body
+			const result = await prisma.user.findUnique({
+				where :{
+					userId: userId,
+				}
+			})
+		}catch (err) {
+			console.log(err)
+		}	
 	}
 }
 

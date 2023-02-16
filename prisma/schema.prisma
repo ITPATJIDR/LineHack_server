@@ -46,10 +46,10 @@ model BananaPoint {
 
 model User {
   id          Int       @id @default(autoincrement())
+  userId      String    @unique
   userImage   String
   userName    String
   bananaPoint String
-  booking     String
   Booking     Booking[]
 }
 
