@@ -3,6 +3,7 @@ const app = express()
 const port = process.env.PORT || 5001
 const dotenv = require("dotenv")
 const cors = require("cors")
+const prisma = require('../utils/prisma')
 
 dotenv.config()
 
@@ -22,7 +23,7 @@ if ('OPTIONS' == req.method) {
  }
 });
 
-app.use("/user", require("./routers/userRouter"))
+app.use("/user2", require("./routers/userRouter"))
 app.use("/shop", require("./routers/shopRouter"))
 app.use("/service", require("./routers/serviceRouter"))
 app.use("/camp", require("./routers/campRouter"))
@@ -31,9 +32,14 @@ app.get("/", (req, res) => {
     res.send("hi")
 })
 
-app.post("/test", (req, res) => {
-    const {test} = req.body
-    res.send(test)
+app.post("/user/register", async (req, res) => {
+    const { userId, userImage, userName } = req.body
+    const result = await prisma.user.findFirst({
+        where: {
+            userId: userId,
+        }
+    })
+    res.send(result)
 })
 
 
