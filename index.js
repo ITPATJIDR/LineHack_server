@@ -8,7 +8,7 @@ dotenv.config()
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json())
-app.use(cors({ origin: ["http://localhost:3000","https://line-hack-client.vercel.app/"], credentials: true }))
+app.use(cors({ origin: ["http://localhost:3000","https://line-hack-client.vercel.app"], credentials: true }))
 
 app.use("/user", require("./routers/userRouter"))
 app.use("/shop", require("./routers/shopRouter"))
