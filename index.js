@@ -23,7 +23,7 @@ if ('OPTIONS' == req.method) {
  }
 });
 
-app.use("/user2", require("./routers/userRouter"))
+app.use("/user", require("./routers/userRouter"))
 app.use("/shop", require("./routers/shopRouter"))
 app.use("/service", require("./routers/serviceRouter"))
 app.use("/camp", require("./routers/campRouter"))
