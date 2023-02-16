@@ -31,6 +31,11 @@ app.get("/", (req, res) => {
     res.send("hi")
 })
 
+app.post("/test", (req, res) => {
+    const {test} = req.body
+    console.log(test)
+})
+
 
 
 app.listen(port, () => {
