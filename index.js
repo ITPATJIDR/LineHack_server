@@ -34,12 +34,13 @@ app.get("/", (req, res) => {
 
 app.post("/user/register", async (req, res) => {
     const { userId, userImage, userName } = req.body
-    const result = await prisma.user.findFirst({
-        where: {
-            userId: userId,
-        }
-    })
-    res.send(result)
+    console.log( userId, userImage, userName )
+    // const result = await prisma.user.findFirst({
+    //     where: {
+    //         userId: userId,
+    //     }
+    // })
+    // res.send(result)
 })
 
 
