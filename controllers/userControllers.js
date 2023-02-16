@@ -8,13 +8,13 @@ const KEY = "ATXCKMTSIKUKEJVXJTPDXYUMREKCJRCEYWTQGBUWYSHZAXOBVGWFXTJWXBPUSLOCHRJ
 const userCtrl = {
 	register: async (req, res, next) => {
 		try {
-			
-			// const {userId, userImage, userName} = req.body
-			// const result = await prisma.user.findFirst({
-			// 	where :{
-			// 		userId: userId,
-			// 	}
-			// })
+			const {userId, userImage, userName} = req.body
+			const result = await prisma.user.findFirst({
+				where :{
+					userId: userId,
+				}
+			})
+			res.send(result)
 			// if (result === null) {
 			// 	const newUser = await prisma.user.create({
 			// 		data: {
@@ -28,7 +28,6 @@ const userCtrl = {
 			// }else{
 			// 	res.status(200).json({user: result})
 			// }
-			res.send("hi")
 		} catch (err) {
 			console.log(err)
 			next()
