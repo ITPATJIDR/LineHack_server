@@ -30,6 +30,9 @@ app.use("/camp", require("./routers/campRouter"))
 app.get("/", (req, res) => {
     res.send("hi")
 })
+app.post("/test", (req, res) => {
+    res.send("hi")
+})
 
 
 
