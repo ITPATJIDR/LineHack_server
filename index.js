@@ -4,6 +4,7 @@ const port = process.env.PORT || 5001
 const dotenv = require("dotenv")
 const cors = require("cors")
 const prisma = require('./utils/prisma')
+const userRouter = require("./routers/userRouter")
 
 dotenv.config()
 
@@ -23,7 +24,7 @@ if ('OPTIONS' == req.method) {
  }
 });
 
-app.use("/user", require("./routers/userRouter"))
+app.use("/user", userRouter)
 app.use("/shop", require("./routers/shopRouter"))
 app.use("/service", require("./routers/serviceRouter"))
 app.use("/camp", require("./routers/campRouter"))
