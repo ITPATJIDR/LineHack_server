@@ -31,6 +31,12 @@ app.use("/camp", require("./routers/campRouter"))
 app.get("/", (req, res) => {
     res.send("hi")
 })
+app.post("/test", async (req, res) => {
+    const user = await prisma.user.findFirst({
+        userId: "Ue65a274e1b57cc99e110bc39b30281d9"
+    })
+    res.send(user)
+})
 
 
 app.listen(port, () => {
