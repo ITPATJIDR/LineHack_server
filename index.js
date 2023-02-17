@@ -32,18 +32,6 @@ app.get("/", (req, res) => {
     res.send("hi")
 })
 
-app.post("/user/register", async (req, res) => {
-    const { userId, userImage, userName } = req.body
-    console.log( userId, userImage, userName )
-    // const result = await prisma.user.findFirst({
-    //     where: {
-    //         userId: userId,
-    //     }
-    // })
-    // res.send(result)
-})
-
-
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

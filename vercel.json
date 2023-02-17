@@ -6,11 +6,5 @@
 	],
 	"routes": [
 	   { "src": "/(.*)", "dest": "/index.js" }
-	],
-	"functions":{
-		"user/register":{
-			"memory":3008
-		}
-	}
-
+	]
 }
