@@ -29,7 +29,11 @@ const campCtrl = {
 	},
 	getAllCamp: async (req, res) => {
 		try {
-			const result = await prisma.camp.findMany()
+			const result = await prisma.camp.findMany({
+				include: {
+					campFacilityDescription: true
+				}
+			})
 			res.status(200).json({ data: result })
 		} catch (err) {
 			res.status(500).json({ message: err.message })
@@ -61,18 +65,6 @@ const campCtrl = {
 				}
 			})
 			res.status(200).json({messgae:"add Facility Success"})
-		}catch (err) {
-			res.status(500).json({ message: err.message })
-		}
-	},
-	getCampFacilityDescription: async (req,res) =>{
-		try{
-			const result = await prisma.camp.findMany({
-				include: {
-					campFacilityDescription:true
-				}
-			})
-			res.status(200).json({ data: result })
 		}catch (err) {
 			res.status(500).json({ message: err.message })
 		}
