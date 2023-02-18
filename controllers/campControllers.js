@@ -20,7 +20,6 @@ const campCtrl = {
 					campPromotionRating:campPromotionRating,
 					campFeeDescription:campFeeDescription,
 					campFacility:campFacility,
-					campFacilityDescription:campFacilityDescription
 				} 
 			})
 			res.status(200).json({ message: "addCamp success" })

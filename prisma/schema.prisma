@@ -24,11 +24,13 @@ model Camp {
   campMode                CampMode  @default(EASY)
   booking                 Booking[]
   campFacility            Boolean
-  campFacilityDescription String
+  campFacilityDescription CampFacilityDescription?
 }
 
 model CampFacilityDescription {
   id               Int     @id @default(autoincrement())
+  camp             Camp    @relation(fields: [campId], references: [id])
+  campId           Int     @unique 
   tentRenting      Boolean
   wift             Boolean
   activity         Boolean
