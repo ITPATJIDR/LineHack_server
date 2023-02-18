@@ -32,7 +32,7 @@ model CampFacilityDescription {
   camp             Camp    @relation(fields: [campId], references: [id])
   campId           Int     @unique 
   tentRenting      Boolean
-  wift             Boolean
+  wifi             Boolean
   activity         Boolean
   suitBestFor      String
   nearbyRestaurant Int

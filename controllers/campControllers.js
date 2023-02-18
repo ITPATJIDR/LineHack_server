@@ -49,11 +49,12 @@ const campCtrl = {
 		}
 	},addCampFacilityDescription: async (req, res) => {
 		try{
-			const { tentRenting , wift, activity, suitBestFor, nearbyRestaurant } = req.body
+			const { tentRenting, campId , wift, activity, suitBestFor, nearbyRestaurant } = req.body
 			await prisma.campFacilityDescription.create({
 				data:{
 					tentRenting: tentRenting,
-					wift: wift,
+					campId: campId,
+					wift: wifi,
 					activity: activity,
 					suitBestFor: suitBestFor,
 					nearbyRestaurant: nearbyRestaurant	
