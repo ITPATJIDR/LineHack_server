@@ -54,7 +54,7 @@ const campCtrl = {
 			await prisma.campFacilityDescription.create({
 				data:{
 					tentRenting: tentRenting,
-					wifi: wifi,
+					wift: wifi,
 					activity: activity,
 					suitBestFor: suitBestFor,
 					nearbyRestaurant: nearbyRestaurant	
