@@ -15,19 +15,19 @@ const userCtrl = {
 				}
 			})
 			res.send(result)
-			// if (result === null) {
-			// 	const newUser = await prisma.user.create({
-			// 		data: {
-			// 			userId: userId,
-			// 			userImage: userImage,
-			// 			userName: userName,
-			// 			bananaPoint: "0",
-			// 		}
-			// 	})
-			// 	res.status(200).json({user:newUser})
-			// }else{
-			// 	res.status(200).json({user: result})
-			// }
+			if (result === null) {
+				const newUser = await prisma.user.create({
+					data: {
+						userId: userId,
+						userImage: userImage,
+						userName: userName,
+						bananaPoint: "0",
+					}
+				})
+				res.status(200).json({user:newUser})
+			}else{
+				res.status(200).json({user: result})
+			}
 		} catch (err) {
 			console.log(err)
 			next()
