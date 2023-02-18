@@ -10,7 +10,7 @@ dotenv.config()
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json())
-app.use(cors({ origin:["https://rich-ruby-pelican-sari.cyclic.app","https://rich-ruby-pelican-sari.cyclic.app"], credentials: true }))
+app.use(cors({ origin:["https://line-hack-client.vercel.app","https://rich-ruby-pelican-sari.cyclic.app"], credentials: true }))
 
 app.use(function(req,res,next) {
 res.header('Access-Control-Allow-Credentials', 'true');
