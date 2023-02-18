@@ -64,6 +64,18 @@ const campCtrl = {
 		}catch (err) {
 			res.status(500).json({ message: err.message })
 		}
+	},
+	getCampFacilityDescription: async (req,res) =>{
+		try{
+			const result = await prisma.camp.findMany({
+				include: {
+					campFacilityDescription:true
+				}
+			})
+			res.status(200).json({ data: result })
+		}catch (err) {
+			res.status(500).json({ message: err.message })
+		}
 	}
 }
 
