@@ -52,11 +52,13 @@ const campCtrl = {
 		try{
 			const { tentRenting , wifi, activity, suitBestFor, nearbyRestaurant } = req.body
 			await prisma.campFacilityDescription.create({
-				tentRenting : tentRenting,
-				wifi : wifi,
-				activity : activity,
-				suitBestFor: suitBestFor,
-				nearbyRestaurant : nearbyRestaurant	
+				data:{
+					tentRenting: tentRenting,
+					wifi: wifi,
+					activity: activity,
+					suitBestFor: suitBestFor,
+					nearbyRestaurant: nearbyRestaurant	
+				}
 			})
 			res.status(200).json({messgae:"add Facility Success"})
 		}catch (err) {
