@@ -4,5 +4,6 @@ const campCtrl = require('../controllers/campControllers')
 router.post("/addCamp",campCtrl.addCamp);
 router.get("/getAllCamp",campCtrl.getAllCamp);
 router.post("/getCampbyId",campCtrl.getCampById);
+router.post("/addCampFacility",campCtrl.addCampFacilityDescription);
 
 module.exports = router
