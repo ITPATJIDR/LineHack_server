@@ -24,11 +24,11 @@ const serviceCtrl = {
 			const {userId} = req.body
 			const result = await prisma.booking.findFirst({
 				where:{
-					UserId: userId
+					userId: userId
 				},
 				include:{
-					UserId :true,
-					CampId: true
+					User :true,
+					Camp: true
 				}
 			})
 			res.status(200).json({data:result})
