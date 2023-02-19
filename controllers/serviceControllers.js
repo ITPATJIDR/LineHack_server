@@ -28,7 +28,9 @@ const serviceCtrl = {
 				},
 				include:{
 					User: true,
-					Camp: true
+					Camp:{
+						Service: true,
+					} 
 				}
 			})
 			res.status(200).json({data:result})
