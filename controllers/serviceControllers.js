@@ -2,9 +2,10 @@ const prisma = require('../utils/prisma');
 const serviceCtrl = {
 	createService: async (req,res,next) => {
 		try{
-			const {serviceImage,serviceName,serviceDescription, serviceContact, serviceLineContact,serviceDistance} = req.body
+			const {serviceImage,serviceName,serviceDescription, serviceContact, serviceLineContact,serviceDistance, campId} = req.body
 			await prisma.servive.create({
 				data:{
+					campId: campId,
 					serviceImage: serviceImage,
 					serviceName: serviceName,
 					serviceDescription: serviceDescription,
