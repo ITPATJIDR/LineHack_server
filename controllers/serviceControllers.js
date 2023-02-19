@@ -29,7 +29,9 @@ const serviceCtrl = {
 				include:{
 					User: true,
 					Camp:{
-						servive: true
+						select:{
+							service: true
+						}
 					} 
 				}
 			})
