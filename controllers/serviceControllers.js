@@ -24,7 +24,7 @@ const serviceCtrl = {
 			const {userId} = req.body
 			const result = await prisma.booking.findFirst({
 				where:{
-					userId: userId
+					UserId: userId
 				},
 				include:{
 					UserId :true,
