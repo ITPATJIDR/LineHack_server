@@ -5,5 +5,6 @@ router.post("/addCamp",campCtrl.addCamp);
 router.get("/getAllCamp",campCtrl.getAllCamp);
 router.post("/getCampbyId",campCtrl.getCampById);
 router.post("/addCampFacility",campCtrl.addCampFacilityDescription);
+router.post("/booking",campCtrl.booking);
 
 module.exports = router

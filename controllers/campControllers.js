@@ -68,6 +68,22 @@ const campCtrl = {
 		}catch (err) {
 			res.status(500).json({ message: err.message })
 		}
+	},
+	booking: async (req, res,next) =>{
+		try{
+			const {userId, campId, campAmount, endDate} = req.body
+			await prisma.booking.create({
+				data:{
+					userId: userId,
+					campId: campId,
+					campAmount: campAmount,
+					endDate: endDate
+				}
+			})
+			res.status(200).json({message:"Booking Success !!!"})
+		}catch (err) {
+			res.status(500).json({ message: err.message })
+		}
 	}
 }
 

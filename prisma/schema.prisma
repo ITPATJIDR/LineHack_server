@@ -25,7 +25,7 @@ model Camp {
   booking                 Booking[]
   campFacility            Boolean
   campFacilityDescription CampFacilityDescription?
-  service                 Servive?
+  service                 Servive[]
 }
 
 model CampFacilityDescription {
@@ -59,15 +59,21 @@ model User {
 model Booking {
   id     Int  @id @default(autoincrement())
   UserId User @relation(fields: [userId], references: [id])
-  userId Int  @unique
+  userId Int  
   CampId Camp @relation(fields: [campId], references: [id])
-  campId Int  @unique
+  campId Int  
+  campAmount Int
+  startDate DateTime @default(now())
+  endDate DateTime 
+  
+  @@index([userId])
+  @@index([campId])
 }
 
 model Servive {
   id                 Int          @id @default(autoincrement())
   camp               Camp         @relation(fields: [campId], references: [id])
-  campId             Int          @unique
+  campId             Int          
   serviceImage       String
   serviceName        String
   serviceCategory    CampCategory @default(FOOD)
@@ -75,6 +81,8 @@ model Servive {
   serviceContact     String
   serviceLineContact String?
   serviceDistance    String
+
+  @@index([campId])
 }
 
 enum CampMode {
