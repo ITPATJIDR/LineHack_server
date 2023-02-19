@@ -25,6 +25,9 @@ const serviceCtrl = {
 			const result = await prisma.booking.findFirst({ 
 				where:{
 					userId: userId
+				},
+				include:{
+					User:true
 				}
 			})
 			res.status(200).json({data:result})
