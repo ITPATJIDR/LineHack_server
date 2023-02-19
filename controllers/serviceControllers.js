@@ -21,8 +21,16 @@ const serviceCtrl = {
 	},
 	getAllService: async (req,res,next) => {
 		try{
-			const result = await prisma.servive.findMany()
-			res.status(200).json({data: result});
+			const {userId} = req.body
+			const result = await prisma.booking.findFirst({
+				where:{
+					userId: userId
+				},
+				include:{
+					UserId :true,
+					CampId: true
+				}
+			})
 		}catch (err){
 			res.status(500).json({message: err.message});
 		}
