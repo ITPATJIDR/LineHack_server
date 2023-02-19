@@ -29,7 +29,7 @@ const serviceCtrl = {
 				include:{
 					User: true,
 					Camp:{
-						Service: true,
+						servive: true
 					} 
 				}
 			})
