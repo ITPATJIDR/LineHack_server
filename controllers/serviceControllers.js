@@ -22,12 +22,12 @@ const serviceCtrl = {
 	getAllService: async (req,res,next) => {
 		try{
 			const {userId} = req.body
-			const result = await prisma.booking.findFirst({ 
+			const result = await prisma.user.findFirst({ 
 				where:{
 					userId: userId
 				},
 				include:{
-					User:true
+					Booking: true,
 				}
 			})
 			res.status(200).json({data:result})
