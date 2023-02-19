@@ -42,12 +42,12 @@ const campCtrl = {
 	getCampById: async (req, res) => {
 		try {
 			const { id } = req.body
-			const Camp = await prisma.camp.findUnique({
+			const result = await prisma.camp.findUnique({
 				where:{
 					id:id
 				}
 			})
-			res.send(Camp)
+			res.status(200).json({ data: result })
 		} catch (err) {
 			res.status(500).json({ message: err.message })
 		}
