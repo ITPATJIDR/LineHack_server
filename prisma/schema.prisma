@@ -24,20 +24,15 @@ model Camp {
   campMode                CampMode  @default(EASY)
   booking                 Booking[]
   campFacility            Boolean
-  campFacilityDescription CampFacilityDescription?
-  service                 Servive[]
+  service                 Service[]
+  rentalEquipment         Boolean
+  wifi                    Boolean
+  phoneSignal             Boolean 
+  electricity             Boolean
+  toilet                  Boolean
+  suitBestFor             SuitBestFor @default(GROUP)
 }
 
-model CampFacilityDescription {
-  id               Int     @id @default(autoincrement())
-  camp             Camp    @relation(fields: [campId], references: [id])
-  campId           Int     @unique 
-  tentRenting      Boolean
-  wifi             Boolean
-  activity         Boolean
-  suitBestFor      String
-  nearbyRestaurant Int
-}
 
 model BananaPoint {
   id              Int    @id @default(autoincrement())
@@ -70,7 +65,7 @@ model Booking {
   @@index([campId])
 }
 
-model Servive {
+model Service {
   id                 Int          @id @default(autoincrement())
   camp               Camp         @relation(fields: [campId], references: [id])
   campId             Int          
@@ -95,4 +90,10 @@ enum CampCategory {
   FOOD
   STORE
   BEVERAGE
+}
+
+enum SuitBestFor {
+  GROUP
+  LOVER
+  FRIEND
 }

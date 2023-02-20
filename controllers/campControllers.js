@@ -7,7 +7,8 @@ const campCtrl = {
 				campDescription, campLocation,
 				bookingPrice, campRating, 
 				campPromotionRating, campFeeDescription,
-				campFacility, campFacilityDescription
+				campFacility, rentalEquipment, wifi, phoneSignal, electricity
+				,toilet 
 			 } = req.body
 			await prisma.camp.create({
 				data:{
@@ -20,6 +21,11 @@ const campCtrl = {
 					campPromotionRating:campPromotionRating,
 					campFeeDescription:campFeeDescription,
 					campFacility:campFacility,
+					rentalEquipment:rentalEquipment,
+					wifi: wifi,
+					phoneSignal: phoneSignal,
+					electricity:electricity,
+					toilet:toilet
 				} 
 			})
 			res.status(200).json({ message: "addCamp success" })
@@ -29,11 +35,7 @@ const campCtrl = {
 	},
 	getAllCamp: async (req, res) => {
 		try {
-			const result = await prisma.camp.findMany({
-				include: {
-					campFacilityDescription: true
-				}
-			})
+			const result = await prisma.camp.findMany()
 			res.status(200).json({ data: result })
 		} catch (err) {
 			res.status(500).json({ message: err.message })
@@ -49,23 +51,6 @@ const campCtrl = {
 			})
 			res.status(200).json({ data: result })
 		} catch (err) {
-			res.status(500).json({ message: err.message })
-		}
-	},addCampFacilityDescription: async (req, res) => {
-		try{
-			const { tentRenting, campId , wifi, activity, suitBestFor, nearbyRestaurant } = req.body
-			await prisma.campFacilityDescription.create({
-				data:{
-					tentRenting: tentRenting,
-					campId: campId,
-					wifi: wifi,
-					activity: activity,
-					suitBestFor: suitBestFor,
-					nearbyRestaurant: nearbyRestaurant	
-				}
-			})
-			res.status(200).json({messgae:"add Facility Success"})
-		}catch (err) {
 			res.status(500).json({ message: err.message })
 		}
 	},

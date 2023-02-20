@@ -44,6 +44,23 @@ const userCtrl = {
 		}catch (err) {
 			console.log(err)
 		}	
+	},
+	updateBananaPoint: async (req, res, next ) => {
+		try{
+			const {id,bananaPoint} = req.body	
+			const result = await prisma.user.update({
+				where:{
+					id: id,
+				},
+				data:{
+					bananaPoint: bananaPoint
+				}
+			})
+			res.status(200).json({message: "update BananaPoint !!!"})
+		}
+		catch (err) {
+			res.status(500).json({message: err.message})
+		}
 	}
 }
 
