@@ -57,7 +57,7 @@ const campCtrl = {
 	booking: async (req, res,next) =>{
 		try{
 			const {userId, campId, campAmount, endDate} = req.body
-			await prisma.booking.create({
+			const result = await prisma.booking.create({
 				data:{
 					userId: userId,
 					campId: campId,
@@ -65,10 +65,13 @@ const campCtrl = {
 					endDate: endDate
 				}
 			})
-			res.status(200).json({message:"Booking Success !!!"})
+			res.status(200).json({data: result})
 		}catch (err) {
 			res.status(500).json({ message: err.message })
 		}
+	},
+	generateQrCode : async (req,res,next) => {
+		
 	}
 }
 

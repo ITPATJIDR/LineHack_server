@@ -3,7 +3,7 @@ const serviceCtrl = {
 	createService: async (req,res,next) => {
 		try{
 			const {serviceImage,serviceName,serviceDescription, serviceContact, serviceLineContact,serviceDistance, campId} = req.body
-			await prisma.servive.create({
+			await prisma.service.create({
 				data:{
 					campId: campId,
 					serviceImage: serviceImage,
