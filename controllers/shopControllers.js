@@ -7,7 +7,7 @@ const shopCtrl = {
 				data:{
 					itemName: itemName,
 					itemImage: itemImage,
-					bananaPoint:bananaPoint,
+					itemBananaPoint:bananaPoint,
 					itemDescription: itemDescription
 				}
 			})	
