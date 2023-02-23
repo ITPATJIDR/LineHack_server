@@ -16,6 +16,14 @@ const shopCtrl = {
 		}catch (err) {
 			res.status(500).json({message: err.message});
 		}
+	},
+	getAllShop: async  (req,res) =>{
+		try{
+			const result = await prisma.bananaPoint.findMany()
+			res.status(200).json({data: result});
+		}catch (err){
+			res.status(500).json({message: err.message});
+		}
 	}
 }
 
