@@ -63,7 +63,7 @@ model Booking {
   phoneNumber String
   name String
   age String
-  birthDate String
+  birthDate DateTime
   email String
   address String
   
