@@ -58,12 +58,12 @@ model Booking {
   Camp Camp @relation(fields: [campId], references: [id])
   campId Int  
   campAmount Int
-  startDate DateTime 
-  endDate DateTime 
+  startDate String 
+  endDate String 
   phoneNumber String
   name String
   age String
-  birthDate DateTime
+  birthDate String
   email String
   address String
   
