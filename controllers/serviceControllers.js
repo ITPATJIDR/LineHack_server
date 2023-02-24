@@ -50,7 +50,11 @@ const serviceCtrl = {
 				include:{
 					Booking:{
 						select:{
-							Camp:true
+							Camp:{
+								select:{
+									service:true
+								}
+							}
 						}
 					}
 				}
