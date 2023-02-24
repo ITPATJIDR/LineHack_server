@@ -56,13 +56,22 @@ const campCtrl = {
 	},
 	booking: async (req, res,next) =>{
 		try{
-			const {userId, campId, campAmount, endDate} = req.body
+			const {userId, campId, campAmount, startDate, endDate,
+				phoneNumber,name ,age, birthDate, email ,address
+			} = req.body
 			const result = await prisma.booking.create({
 				data:{
 					userId: userId,
 					campId: campId,
 					campAmount: campAmount,
-					endDate: endDate
+					startDate: startDate,
+					endDate: endDate,
+					phoneNumber: phoneNumber,
+					name: name,
+					age: age,
+					birthDate: birthDate,
+					email:email,
+					address:address
 				}
 			})
 			res.status(200).json({data: result})
