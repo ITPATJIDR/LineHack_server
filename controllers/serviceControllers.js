@@ -22,7 +22,7 @@ const serviceCtrl = {
 	getAllService: async (req,res,next) => {
 		try{
 			const {userId} = req.body
-			const result = await prisma.booking.findFirst({ 
+			const result = await prisma.booking.findUnique({ 
 				where:{
 					userId: userId
 				},
