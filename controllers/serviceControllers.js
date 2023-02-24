@@ -39,7 +39,28 @@ const serviceCtrl = {
 		}catch (err){
 			res.status(500).json({message: err.message});
 		}
+	},
+	getServiecById: async (req,res,next) => {
+		try{
+			const {userId} = req.body
+			const result = await prisma.user.findUnique({ 
+				where:{
+					userId: userId
+				},
+				include:{
+					Booking:{
+						select:{
+							Camp:true
+						}
+					}
+				}
+			})
+			res.status(200).json({data:result})
+		}catch (err){
+			res.status(500).json({message: err.message});
+		}
 	} 
+
 }
 
 module.exports = serviceCtrl
