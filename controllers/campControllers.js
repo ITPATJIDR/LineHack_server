@@ -62,21 +62,17 @@ const campCtrl = {
 				phoneNumber,name ,age, birthDate, email ,address
 			} = req.body
 
-			const startDateStr = moment(startDate).format('YYYY-MM-DD HH:mm:ss')
-			const endDateStr = moment(endDate).format('YYYY-MM-DD HH:mm:ss')  
-			const brithDateStr = moment(birthDate).format('YYYY-MM-DD HH:mm:ss')  
-
 			const result = await prisma.booking.create({
 				data:{
 					userId: userId,
 					campId: campId,
 					campAmount: campAmount,
-					startDate: startDateStr,
-					endDate: endDateStr,
+					startDate: startDate,
+					endDate: endDate,
 					phoneNumber: phoneNumber,
 					name: name,
 					age: age,
-					birthDate: brithDateStr,
+					birthDate: birthDate,
 					email:email,
 					address:address
 				}
@@ -86,9 +82,6 @@ const campCtrl = {
 			res.status(500).json({ message: err.message })
 		}
 	},
-	generateQrCode : async (req,res,next) => {
-		
-	}
 }
 
 module.exports = campCtrl

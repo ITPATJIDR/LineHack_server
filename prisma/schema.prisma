@@ -48,7 +48,7 @@ model User {
   userImage   String
   userName    String
   bananaPoint String
-  Booking     Booking[]
+  Booking     Booking?
 }
 
 model Booking {
