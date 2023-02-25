@@ -90,7 +90,7 @@ const campCtrl = {
 					userId: userId
 				},
 				include:{
-					Camp:true
+					Booking: true
 				}
 			})
 			res.status(200).json({ message: err.message })
