@@ -76,7 +76,7 @@ const campCtrl = {
 					phoneNumber: phoneNumber,
 					name: name,
 					age: age,
-					birthDate: birthDateStr,
+					birthDate: brithDateStr,
 					email:email,
 					address:address
 				}
