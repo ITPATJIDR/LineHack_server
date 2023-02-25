@@ -62,17 +62,21 @@ const campCtrl = {
 				phoneNumber,name ,age, birthDate, email ,address
 			} = req.body
 
+			const startDateStr = moment(startDate).format('YYYY-MM-DD HH:mm:ss')
+			const endDateStr = moment(endDate).format('YYYY-MM-DD HH:mm:ss')  
+			const brithDateStr = moment(birthDate).format('YYYY-MM-DD HH:mm:ss')  
+
 			const result = await prisma.booking.create({
 				data:{
 					userId: userId,
 					campId: campId,
 					campAmount: campAmount,
-					startDate: startDate,
-					endDate: endDate,
+					startDate: startDateStr,
+					endDate: endDateStr,
 					phoneNumber: phoneNumber,
 					name: name,
 					age: age,
-					birthDate: birthDate,
+					birthDate: birthDateStr,
 					email:email,
 					address:address
 				}
