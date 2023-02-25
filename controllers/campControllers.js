@@ -82,6 +82,22 @@ const campCtrl = {
 			res.status(500).json({ message: err.message })
 		}
 	},
+	checkBooking : async (req,res) => {
+		try{
+			const { userId } = req.body;	
+			const result = await prisma.user.findUnique({
+				where: {
+					userId: userId
+				},
+				include:{
+					Camp:true
+				}
+			})
+			res.status(200).json({ message: err.message })
+		}catch(err){
+			res.status(500).json({ message: err.message })
+		}
+	}
 }
 
 module.exports = campCtrl
