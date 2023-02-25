@@ -31,6 +31,8 @@ model Camp {
   electricity             Boolean
   toilet                  Boolean
   suitBestFor             SuitBestFor @default(GROUP)
+  latitude String
+  longitude String
 }
 
 

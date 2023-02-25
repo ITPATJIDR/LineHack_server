@@ -10,7 +10,7 @@ const campCtrl = {
 				bookingPrice, campRating, 
 				campPromotionRating, campFeeDescription,
 				campFacility, rentalEquipment, wifi, phoneSignal, electricity
-				,toilet 
+				,toilet,latitude,longitude
 			 } = req.body
 			await prisma.camp.create({
 				data:{
@@ -27,7 +27,9 @@ const campCtrl = {
 					wifi: wifi,
 					phoneSignal: phoneSignal,
 					electricity:electricity,
-					toilet:toilet
+					toilet:toilet,
+					latitude:latitude,
+					longitude:longitude
 				} 
 			})
 			res.status(200).json({ message: "addCamp success" })
