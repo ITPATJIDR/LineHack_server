@@ -114,8 +114,8 @@ const campCtrl = {
 				include:{
 					Booking: {
 						select: {
-							startDate,
-							endDate,
+							startDate:true,
+							endDate:true,
 							Camp: true
 						}
 					}
