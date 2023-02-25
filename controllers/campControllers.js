@@ -116,6 +116,7 @@ const campCtrl = {
 						select: {
 							startDate:true,
 							endDate:true,
+							name:true,
 							Camp: true
 						}
 					}
